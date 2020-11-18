@@ -9,16 +9,16 @@ def init_swarm(c: Connection) -> None:
     try:
         result = c.sudo('docker swarm init', hide=True)
     except invoke.exceptions.UnexpectedExit as uee:
-        print(colored(uee, 'write', 'on_red'))
+        print(colored(uee, 'white', 'on_red'))
         raise uee
     except invoke.exceptions.Failure as fe:
-        print(colored(fe, 'write', 'on_cyan'))
+        print(colored(fe, 'white', 'on_cyan'))
         raise fe
     except invoke.exceptions.ThreadException as te:
-        print(colored(te, 'write', 'on_cyan'))
+        print(colored(te, 'white', 'on_cyan'))
         raise te
     except Exception as e:
-        print(colored(str(e), 'write', 'on_yellow'))
+        print(colored(str(e), 'white', 'on_yellow'))
         raise e
     else:
         msg = f"Ran {result.command!r} on {result.connection.host}, got stdout:\n{result.stdout}"
@@ -30,16 +30,16 @@ def swarm_manager_token(c: Connection) -> None:
     try:
         result = c.sudo('docker swarm join-token manager', hide=True)
     except invoke.exceptions.UnexpectedExit as uee:
-        print(colored(uee, 'write', 'on_red'))
+        print(colored(uee, 'white', 'on_red'))
         raise uee
     except invoke.exceptions.Failure as fe:
-        print(colored(fe, 'write', 'on_cyan'))
+        print(colored(fe, 'white', 'on_cyan'))
         raise fe
     except invoke.exceptions.ThreadException as te:
-        print(colored(te, 'write', 'on_cyan'))
+        print(colored(te, 'white', 'on_cyan'))
         raise te
     except Exception as e:
-        print(colored(str(e), 'write', 'on_yellow'))
+        print(colored(str(e), 'white', 'on_yellow'))
         raise e
     else:
         msg = f"Ran {result.command!r} on {result.connection.host}, got stdout:\n{result.stdout}"
@@ -51,16 +51,16 @@ def swarm_worker_token(c: Connection) -> None:
     try:
         result = c.sudo('docker swarm join-token worker', hide=True)
     except invoke.exceptions.UnexpectedExit as uee:
-        print(colored(uee, 'write', 'on_red'))
+        print(colored(uee, 'white', 'on_red'))
         raise uee
     except invoke.exceptions.Failure as fe:
-        print(colored(fe, 'write', 'on_cyan'))
+        print(colored(fe, 'white', 'on_cyan'))
         raise fe
     except invoke.exceptions.ThreadException as te:
-        print(colored(te, 'write', 'on_cyan'))
+        print(colored(te, 'white', 'on_cyan'))
         raise te
     except Exception as e:
-        print(colored(str(e), 'write', 'on_yellow'))
+        print(colored(str(e), 'white', 'on_yellow'))
         raise e
     else:
         msg = f"Ran {result.command!r} on {result.connection.host}, got stdout:\n{result.stdout}"
@@ -72,16 +72,16 @@ def join_swarm(c: Connection, token: str, manager: str) -> None:
     try:
         result = c.sudo(f'docker swarm join --token {token} {manager}:2377', hide=True)
     except invoke.exceptions.UnexpectedExit as uee:
-        print(colored(uee, 'write', 'on_red'))
+        print(colored(uee, 'white', 'on_red'))
         raise uee
     except invoke.exceptions.Failure as fe:
-        print(colored(fe, 'write', 'on_cyan'))
+        print(colored(fe, 'white', 'on_cyan'))
         raise fe
     except invoke.exceptions.ThreadException as te:
-        print(colored(te, 'write', 'on_cyan'))
+        print(colored(te, 'white', 'on_cyan'))
         raise te
     except Exception as e:
-        print(colored(str(e), 'write', 'on_yellow'))
+        print(colored(str(e), 'white', 'on_yellow'))
         raise e
     else:
         msg = f"Ran {result.command!r} on {result.connection.host}, got stdout:\n{result.stdout}"
