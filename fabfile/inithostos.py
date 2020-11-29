@@ -52,6 +52,7 @@ def apt_upgrade(c: Connection) -> None:
     """更新内核并重启"""
     apt_update(c)
     try:
+        a = "press q to quit"
         result = c.sudo("""sudo apt upgrade -y""", hide=True)
     except invoke.exceptions.UnexpectedExit as uee:
         print(colored(uee, 'white', 'on_red'))
